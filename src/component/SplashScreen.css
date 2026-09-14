@@ -1,0 +1,1121 @@
+/* =====================================================
+   SPLASH
+===================================================== */
+
+.splash {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+
+  overflow: hidden;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: white;
+
+  background:
+    radial-gradient(
+      circle at 50% 42%,
+      #18a66d 0%,
+      #078957 38%,
+      #056e49 72%,
+      #045a3d 100%
+    );
+
+  animation: splashExit .7s ease 3.6s forwards;
+}
+
+
+/* =====================================================
+   BACKGROUND GLOW
+===================================================== */
+
+.splash-glow {
+  position: absolute;
+
+  width: 650px;
+  height: 650px;
+
+  border-radius: 50%;
+
+  background: rgba(205, 255, 226, .08);
+
+  filter: blur(90px);
+
+  animation: glowPulse 4s ease-in-out infinite;
+}
+
+
+/* =====================================================
+   CONTENT
+===================================================== */
+
+.splash-content {
+  position: relative;
+
+  width: min(1000px, 100%);
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+}
+
+
+/* =====================================================
+   LOGO
+===================================================== */
+
+.brand-icon {
+  width: 88px;
+  height: 88px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: rgba(255,255,255,.08);
+
+  border: 1px solid rgba(255,255,255,.25);
+
+  box-shadow:
+    0 0 0 10px rgba(255,255,255,.025),
+    0 15px 45px rgba(0,0,0,.12);
+
+  animation:
+    logoIn .75s cubic-bezier(.2,.8,.2,1),
+    logoFloat 3s ease-in-out 1s infinite;
+}
+
+
+/* =====================================================
+   BRAND TEXT
+===================================================== */
+
+.brand-text {
+  margin-top: 20px;
+
+  animation: textIn .7s ease .15s both;
+}
+
+.brand-text h1 {
+  margin: 0;
+
+  font-size: clamp(35px, 5vw, 52px);
+
+  font-weight: 700;
+
+  letter-spacing: -2px;
+
+  line-height: 1.05;
+}
+
+.brand-text h1 span {
+  color: #baf3d6;
+}
+
+.brand-text p {
+  margin: 9px 0 0;
+
+  font-size: 16px;
+
+  letter-spacing: 1px;
+
+  color: rgba(255,255,255,.76);
+}
+
+
+/* =====================================================
+   CART STAGE
+===================================================== */
+
+.cart-stage {
+  position: relative;
+
+  width: min(900px, 100%);
+  height: 255px;
+
+  margin-top: 2px;
+
+  overflow: hidden;
+}
+
+
+/* =====================================================
+   GROUND
+===================================================== */
+
+.ground {
+  position: absolute;
+
+  left: 7%;
+  right: 7%;
+
+  bottom: 29px;
+
+  height: 2px;
+
+  background: rgba(235,255,244,.28);
+}
+
+.ground::after {
+  content: "";
+
+  position: absolute;
+
+  left: 8%;
+  right: 8%;
+
+  top: 10px;
+
+  height: 1px;
+
+  background: rgba(235,255,244,.08);
+}
+
+
+/* =====================================================
+   CART CONTAINER
+===================================================== */
+
+.kabadi-cart {
+  position: absolute;
+
+  left: -360px;
+  bottom: 31px;
+
+  width: 300px;
+  height: 195px;
+
+  animation:
+    cartEnter 2s cubic-bezier(.12,.82,.18,1) .45s forwards,
+    cartBounce .45s ease 2.5s both;
+}
+
+
+/* =====================================================
+   SCRAP LOAD
+===================================================== */
+
+/*
+   IMPORTANT:
+   Scrap is BEHIND the front wall.
+   This makes it look like the cart is actually
+   filled rather than objects sitting on top.
+*/
+
+.scrap-load {
+  position: absolute;
+
+  left: 27px;
+  bottom: 78px;
+
+  width: 235px;
+  height: 105px;
+
+  z-index: 2;
+}
+
+
+/* =====================================================
+   CARDBOARD
+===================================================== */
+
+.cardboard {
+  position: absolute;
+
+  border-radius: 3px;
+
+  background: #c8a775;
+
+  border: 1px solid rgba(82,57,27,.25);
+
+  box-shadow:
+    0 3px 5px rgba(0,0,0,.12);
+}
+
+.box-1 {
+  width: 75px;
+  height: 35px;
+
+  left: 5px;
+  bottom: 15px;
+
+  transform: rotate(-7deg);
+}
+
+.box-2 {
+  width: 67px;
+  height: 32px;
+
+  left: 62px;
+  bottom: 7px;
+
+  transform: rotate(8deg);
+}
+
+.box-3 {
+  width: 58px;
+  height: 30px;
+
+  left: 121px;
+  bottom: 14px;
+
+  transform: rotate(-13deg);
+}
+
+
+/* =====================================================
+   CIRCUIT BOARDS
+===================================================== */
+
+.circuit {
+  position: absolute;
+
+  background: #304b43;
+
+  border: 2px solid #8da99c;
+
+  border-radius: 4px;
+
+  box-shadow:
+    0 3px 5px rgba(0,0,0,.18);
+}
+
+.board-1 {
+  width: 57px;
+  height: 38px;
+
+  left: 34px;
+  bottom: 48px;
+
+  transform: rotate(-13deg);
+}
+
+.board-2 {
+  width: 48px;
+  height: 33px;
+
+  left: 112px;
+  bottom: 50px;
+
+  transform: rotate(15deg);
+}
+
+.circuit span {
+  position: absolute;
+
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background: #c4ddd0;
+}
+
+.board-1 span:nth-child(1) {
+  left: 7px;
+  top: 7px;
+}
+
+.board-1 span:nth-child(2) {
+  left: 24px;
+  top: 18px;
+}
+
+.board-1 span:nth-child(3) {
+  right: 8px;
+  top: 7px;
+}
+
+.board-1 span:nth-child(4) {
+  right: 13px;
+  bottom: 5px;
+}
+
+.board-2 span:nth-child(1) {
+  left: 7px;
+  top: 7px;
+}
+
+.board-2 span:nth-child(2) {
+  right: 7px;
+  bottom: 6px;
+}
+
+
+/* =====================================================
+   PLASTIC BOTTLES
+===================================================== */
+
+.bottle {
+  position: absolute;
+
+  width: 25px;
+  height: 57px;
+
+  border-radius: 8px 8px 6px 6px;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(230,248,239,.18),
+      rgba(255,255,255,.07),
+      rgba(0,0,0,.08)
+    );
+
+  border: 2px solid rgba(210,239,226,.7);
+
+  box-shadow:
+    inset -4px 0 rgba(0,0,0,.08);
+}
+
+
+/* neck */
+
+.bottle-neck {
+  position: absolute;
+
+  left: 6px;
+  top: -11px;
+
+  width: 10px;
+  height: 13px;
+
+  border-radius: 3px 3px 1px 1px;
+
+  background: #718d82;
+}
+
+
+/* cap */
+
+.bottle-cap {
+  position: absolute;
+
+  left: 5px;
+  top: -15px;
+
+  width: 12px;
+  height: 5px;
+
+  border-radius: 3px;
+
+  background: #d2e3db;
+}
+
+
+/* label */
+
+.bottle-label {
+  position: absolute;
+
+  left: 2px;
+  right: 2px;
+
+  top: 25px;
+
+  height: 10px;
+
+  background: rgba(241,230,210,.55);
+}
+
+
+/* positions */
+
+.bottle-1 {
+  left: 3px;
+  bottom: 25px;
+
+  transform: rotate(-16deg);
+}
+
+.bottle-2 {
+  left: 58px;
+  bottom: 46px;
+
+  transform: rotate(10deg);
+}
+
+.bottle-3 {
+  left: 148px;
+  bottom: 34px;
+
+  transform: rotate(-11deg);
+}
+
+.bottle-4 {
+  left: 194px;
+  bottom: 23px;
+
+  transform: rotate(15deg);
+}
+
+
+/* =====================================================
+   CANS
+===================================================== */
+
+.can {
+  position: absolute;
+
+  width: 25px;
+  height: 39px;
+
+  border-radius: 5px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #596f66,
+      #9caea6,
+      #4c6159
+    );
+
+  border: 2px solid #40564d;
+}
+
+.can-1 {
+  left: 87px;
+  bottom: 37px;
+
+  transform: rotate(-8deg);
+}
+
+.can-2 {
+  left: 170px;
+  bottom: 43px;
+
+  transform: rotate(11deg);
+}
+
+
+/* =====================================================
+   CABLES
+===================================================== */
+
+.cable {
+  position: absolute;
+
+  border: 4px solid #263d37;
+
+  border-radius: 50%;
+
+  background: transparent;
+}
+
+.cable-1 {
+  width: 64px;
+  height: 29px;
+
+  left: 2px;
+  bottom: 57px;
+
+  transform: rotate(-18deg);
+}
+
+.cable-2 {
+  width: 55px;
+  height: 27px;
+
+  left: 67px;
+  bottom: 69px;
+
+  transform: rotate(20deg);
+}
+
+.cable-3 {
+  width: 50px;
+  height: 24px;
+
+  left: 128px;
+  bottom: 61px;
+
+  transform: rotate(-26deg);
+}
+
+
+/* =====================================================
+   METAL
+===================================================== */
+
+.metal {
+  position: absolute;
+
+  height: 7px;
+
+  border-radius: 6px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #61776d,
+      #a6b5ae,
+      #52675f
+    );
+
+  box-shadow:
+    0 2px 3px rgba(0,0,0,.16);
+}
+
+.metal-1 {
+  width: 77px;
+
+  left: 27px;
+  bottom: 75px;
+
+  transform: rotate(-18deg);
+}
+
+.metal-2 {
+  width: 61px;
+
+  left: 107px;
+  bottom: 79px;
+
+  transform: rotate(20deg);
+}
+
+
+/* =====================================================
+   PLASTIC BAG
+===================================================== */
+
+.plastic-bag {
+  position: absolute;
+
+  left: 145px;
+  bottom: 48px;
+
+  width: 45px;
+  height: 39px;
+
+  border-radius: 4px 4px 13px 13px;
+
+  background: rgba(217,236,226,.38);
+
+  border: 1px solid rgba(255,255,255,.35);
+
+  transform: rotate(10deg);
+}
+
+.plastic-bag::before,
+.plastic-bag::after {
+  content: "";
+
+  position: absolute;
+
+  top: -14px;
+
+  width: 15px;
+  height: 18px;
+
+  border: 3px solid rgba(220,238,228,.55);
+
+  border-bottom: none;
+
+  border-radius: 10px 10px 0 0;
+}
+
+.plastic-bag::before {
+  left: 5px;
+}
+
+.plastic-bag::after {
+  right: 5px;
+}
+
+
+/* =====================================================
+   CART BODY
+===================================================== */
+
+.cart-body {
+  position: absolute;
+
+  left: 20px;
+  bottom: 31px;
+
+  width: 218px;
+  height: 112px;
+
+  border: 6px solid #f4faf7;
+
+  border-radius: 9px 12px 18px 18px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.12),
+      rgba(255,255,255,.025)
+    );
+
+  transform: skewX(-5deg);
+
+  box-shadow:
+    0 18px 30px rgba(0,0,0,.22);
+
+  z-index: 3;
+}
+
+
+/* inner depth */
+
+.cart-inner-shadow {
+  position: absolute;
+
+  left: 5px;
+  right: 5px;
+  top: 5px;
+
+  height: 18px;
+
+  border-radius: 4px;
+
+  background:
+    linear-gradient(
+      rgba(0,0,0,.18),
+      transparent
+    );
+}
+
+
+/* strong top rim */
+
+.cart-rim {
+  position: absolute;
+
+  left: -3px;
+  right: -3px;
+
+  top: -4px;
+
+  height: 7px;
+
+  border-radius: 8px;
+
+  background: rgba(246,252,248,.9);
+
+  box-shadow:
+    0 2px 5px rgba(0,0,0,.12);
+}
+
+
+/* vertical bars */
+
+.cart-rib {
+  position: absolute;
+
+  top: 9px;
+  bottom: 9px;
+
+  width: 2px;
+
+  background: rgba(255,255,255,.22);
+}
+
+.rib-1 {
+  left: 50px;
+}
+
+.rib-2 {
+  left: 105px;
+}
+
+.rib-3 {
+  left: 160px;
+}
+
+
+/* recycling mark */
+
+.cart-label {
+  position: absolute;
+
+  right: 13px;
+  bottom: 16px;
+
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  color: rgba(255,255,255,.85);
+
+  background: rgba(255,255,255,.08);
+}
+
+
+/* =====================================================
+   HANDLE
+===================================================== */
+
+.cart-handle {
+  position: absolute;
+
+  left: 226px;
+  bottom: 97px;
+
+  width: 80px;
+  height: 7px;
+
+  border-radius: 10px;
+
+  background: #f4faf7;
+
+  transform: rotate(-8deg);
+
+  z-index: 2;
+}
+
+
+/* =====================================================
+   WHEELS
+===================================================== */
+
+.cart-wheel {
+  position: absolute;
+
+  bottom: 3px;
+
+  width: 52px;
+  height: 52px;
+
+  border-radius: 50%;
+
+  background: #164d3a;
+
+  border: 6px solid #f5faf7;
+
+  box-shadow:
+    0 8px 17px rgba(0,0,0,.2);
+
+  z-index: 6;
+}
+
+.wheel-left {
+  left: 40px;
+}
+
+.wheel-right {
+  left: 153px;
+}
+
+.wheel-center {
+  position: absolute;
+
+  inset: 10px;
+
+  border-radius: 50%;
+
+  border: 2px solid rgba(255,255,255,.2);
+}
+
+
+/* =====================================================
+   MOTION LINES
+===================================================== */
+
+.speed-line {
+  position: absolute;
+
+  height: 2px;
+
+  border-radius: 10px;
+
+  background: rgba(220,255,235,.25);
+
+  opacity: 0;
+
+  animation:
+    speedAppear .5s ease 1.35s forwards;
+}
+
+.speed-1 {
+  width: 120px;
+
+  left: 13%;
+  bottom: 119px;
+}
+
+.speed-2 {
+  width: 80px;
+
+  left: 9%;
+  bottom: 94px;
+
+  animation-delay: 1.5s;
+}
+
+.speed-3 {
+  width: 48px;
+
+  left: 21%;
+  bottom: 70px;
+
+  animation-delay: 1.65s;
+}
+
+
+/* =====================================================
+   BOTTOM MESSAGE
+===================================================== */
+
+.value-message {
+  display: flex;
+
+  gap: 8px;
+
+  margin-top: -5px;
+
+  font-size: 13px;
+
+  letter-spacing: 3px;
+
+  color: rgba(255,255,255,.52);
+
+  animation:
+    textIn .7s ease 1.35s both;
+}
+
+.value-message strong {
+  color: #c7f4db;
+
+  font-weight: 700;
+}
+
+
+/* =====================================================
+   LOADING
+===================================================== */
+
+.loading {
+  width: 190px;
+  height: 3px;
+
+  margin-top: 18px;
+
+  overflow: hidden;
+
+  border-radius: 10px;
+
+  background: rgba(255,255,255,.14);
+
+  animation:
+    textIn .5s ease 1.5s both;
+}
+
+.loading-progress {
+  width: 0;
+  height: 100%;
+
+  background: #d4f6e3;
+
+  animation:
+    loading 3.3s linear forwards;
+}
+
+
+/* =====================================================
+   PARTICLES
+===================================================== */
+
+.particles i {
+  position: absolute;
+
+  width: 4px;
+  height: 4px;
+
+  border-radius: 50%;
+
+  background: rgba(220,255,235,.45);
+
+  animation:
+    particleFloat 4s linear infinite;
+}
+
+.particles i:nth-child(1) {
+  left: 18%;
+  top: 35%;
+}
+
+.particles i:nth-child(2) {
+  left: 78%;
+  top: 28%;
+
+  animation-delay: .8s;
+}
+
+.particles i:nth-child(3) {
+  left: 84%;
+  top: 65%;
+
+  animation-delay: 1.4s;
+}
+
+.particles i:nth-child(4) {
+  left: 22%;
+  top: 70%;
+
+  animation-delay: 2s;
+}
+
+.particles i:nth-child(5) {
+  left: 70%;
+  top: 78%;
+
+  animation-delay: 2.5s;
+}
+
+.particles i:nth-child(6) {
+  left: 34%;
+  top: 22%;
+
+  animation-delay: 1.2s;
+}
+
+
+/* =====================================================
+   ANIMATIONS
+===================================================== */
+
+@keyframes logoIn {
+  from {
+    opacity: 0;
+    transform: scale(.5) rotate(-25deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+}
+
+@keyframes logoFloat {
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes textIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cartEnter {
+  from {
+    left: -360px;
+  }
+
+  68% {
+    left: calc(50% - 150px);
+  }
+
+  86% {
+    left: calc(50% - 160px);
+  }
+
+  100% {
+    left: calc(50% - 150px);
+  }
+}
+
+@keyframes cartBounce {
+  50% {
+    transform: translateY(-6px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes speedAppear {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes loading {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes glowPulse {
+  50% {
+    transform: scale(1.15);
+    opacity: .7;
+  }
+}
+
+@keyframes particleFloat {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  30% {
+    opacity: .7;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-70px);
+  }
+}
+
+@keyframes splashExit {
+  to {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+  .brand-text h1 {
+    font-size: 34px;
+  }
+
+  .brand-text p {
+    font-size: 14px;
+  }
+
+  .cart-stage {
+    transform: scale(.78);
+  }
+
+  .value-message {
+    font-size: 11px;
+  }
+}

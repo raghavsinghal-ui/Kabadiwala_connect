@@ -1,0 +1,1142 @@
+/* =========================================================
+   KABADIWALA CONNECT — HOME
+========================================================= */
+
+.home {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 82% 18%,
+      rgba(25, 167, 108, 0.09),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 8% 75%,
+      rgba(25, 167, 108, 0.045),
+      transparent 25%
+    ),
+    #f8fbf9;
+
+  color: #123c30;
+
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+}
+
+
+/* subtle background decoration */
+
+.home::before {
+  content: "";
+
+  position: absolute;
+
+  width: 420px;
+  height: 420px;
+
+  top: 230px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  border-radius: 50%;
+
+  background: rgba(16, 151, 96, 0.035);
+
+  filter: blur(2px);
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.home-header {
+  position: relative;
+  z-index: 2;
+
+  width: min(1080px, calc(100% - 56px));
+
+  margin: 0 auto;
+
+  padding: 25px 0 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+.home-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+
+.brand-mark {
+  width: 44px;
+  height: 44px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 13px;
+
+  background: #078552;
+
+  color: white;
+
+  font-size: 23px;
+
+  box-shadow:
+    0 8px 22px rgba(7, 133, 82, 0.18);
+}
+
+
+.home-brand h1 {
+  margin: 0;
+
+  color: #17463a;
+
+  font-size: 20px;
+  font-weight: 750;
+
+  line-height: 1;
+
+  letter-spacing: -0.7px;
+}
+
+
+.home-brand h1 span {
+  color: #07935d;
+}
+
+
+.home-brand p {
+  margin: 5px 0 0;
+
+  color: #81958e;
+
+  font-size: 10px;
+
+  letter-spacing: 0.45px;
+}
+
+
+/* =========================================================
+   LANGUAGE TOGGLE
+========================================================= */
+
+.language-toggle {
+  display: flex;
+  align-items: center;
+
+  padding: 4px;
+
+  border: 1px solid #dbe9e1;
+
+  border-radius: 12px;
+
+  background: #edf5f0;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.8);
+}
+
+
+.language-toggle button {
+  min-width: 43px;
+
+  border: 0;
+
+  padding: 8px 11px;
+
+  border-radius: 9px;
+
+  background: transparent;
+
+  color: #648077;
+
+  font-size: 11px;
+  font-weight: 650;
+
+  cursor: pointer;
+
+  transition:
+    background .2s ease,
+    color .2s ease,
+    box-shadow .2s ease;
+}
+
+
+.language-toggle button.active {
+  background: #ffffff;
+
+  color: #087c50;
+
+  box-shadow:
+    0 3px 10px rgba(30, 70, 55, .09);
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.home-hero {
+  position: relative;
+  z-index: 1;
+
+  width: min(720px, calc(100% - 40px));
+
+  margin: 47px auto 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   SMALL INTRO PILL
+========================================================= */
+
+.welcome-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 7px 13px;
+
+  border: 1px solid #d9eee3;
+
+  border-radius: 30px;
+
+  background: #eaf7f0;
+
+  color: #137554;
+
+  font-size: 10px;
+  font-weight: 650;
+
+  box-shadow:
+    0 3px 12px rgba(20, 110, 75, .04);
+}
+
+
+.welcome-pill span {
+  width: 6px;
+  height: 6px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: #13aa6b;
+
+  box-shadow:
+    0 0 0 4px rgba(19, 170, 107, .10);
+}
+
+
+/* =========================================================
+   HERO COPY
+========================================================= */
+
+.hero-copy h2 {
+  margin: 19px 0 12px;
+
+  color: #123e31;
+
+  font-size: clamp(43px, 5vw, 58px);
+
+  line-height: 1.01;
+
+  letter-spacing: -2.8px;
+
+  font-weight: 780;
+}
+
+
+.hero-copy h2 span {
+  color: #07915c;
+}
+
+
+.hero-copy p {
+  width: min(570px, 100%);
+
+  margin: 0 auto;
+
+  color: #71877f;
+
+  font-size: 13px;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   CAMERA CARD
+========================================================= */
+
+.camera-card {
+  position: relative;
+
+  width: min(600px, 100%);
+
+  min-height: 128px;
+
+  margin-top: 29px;
+
+  padding: 22px 25px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 19px;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(255,255,255,.16);
+
+  border-radius: 23px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #07945d 0%,
+      #078451 55%,
+      #06774b 100%
+    );
+
+  color: white;
+
+  cursor: pointer;
+
+  text-align: left;
+
+  box-shadow:
+    0 18px 36px rgba(7, 122, 77, .18);
+
+  transition:
+    transform .22s ease,
+    box-shadow .22s ease;
+}
+
+
+.camera-card:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 24px 45px rgba(7, 122, 77, .24);
+}
+
+
+.camera-card:active {
+  transform: translateY(-1px);
+}
+
+
+/* large soft light */
+
+.camera-glow {
+  position: absolute;
+
+  width: 260px;
+  height: 260px;
+
+  right: -75px;
+  top: -130px;
+
+  border-radius: 50%;
+
+  background: rgba(255,255,255,.10);
+
+  filter: blur(3px);
+
+  pointer-events: none;
+}
+
+
+/* second highlight */
+
+.camera-card::after {
+  content: "";
+
+  position: absolute;
+
+  width: 130px;
+  height: 130px;
+
+  right: 85px;
+  bottom: -100px;
+
+  border-radius: 50%;
+
+  background: rgba(255,255,255,.055);
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   CAMERA ICON
+========================================================= */
+
+.camera-icon {
+  position: relative;
+  z-index: 1;
+
+  width: 67px;
+  height: 67px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(255,255,255,.22);
+
+  border-radius: 19px;
+
+  background: rgba(255,255,255,.13);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.10);
+}
+
+
+.camera-icon svg {
+  filter:
+    drop-shadow(0 2px 4px rgba(0,0,0,.08));
+}
+
+
+.camera-text {
+  position: relative;
+  z-index: 1;
+
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 5px;
+}
+
+
+.camera-text strong {
+  font-size: 16px;
+  font-weight: 720;
+
+  letter-spacing: -.15px;
+}
+
+
+.camera-text span {
+  color: rgba(255,255,255,.72);
+
+  font-size: 11px;
+}
+
+
+.camera-arrow {
+  position: relative;
+  z-index: 1;
+
+  width: 39px;
+  height: 39px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(255,255,255,.12);
+
+  border-radius: 50%;
+
+  background: rgba(255,255,255,.13);
+
+  font-size: 20px;
+
+  transition:
+    transform .2s ease,
+    background .2s ease;
+}
+
+
+.camera-card:hover .camera-arrow {
+  transform: translateX(3px);
+
+  background: rgba(255,255,255,.19);
+}
+
+
+/* =========================================================
+   BENEFITS
+========================================================= */
+
+.benefits {
+  width: min(600px, 100%);
+
+  margin-top: 17px;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 10px;
+}
+
+
+.benefit {
+  min-height: 67px;
+
+  padding: 11px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  border: 1px solid #e0ebe5;
+
+  border-radius: 15px;
+
+  background: rgba(255,255,255,.82);
+
+  text-align: left;
+
+  box-shadow:
+    0 5px 18px rgba(24, 68, 49, .035);
+
+  transition:
+    transform .2s ease,
+    box-shadow .2s ease;
+}
+
+
+.benefit:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 9px 22px rgba(24, 68, 49, .07);
+}
+
+
+.benefit-icon {
+  width: 36px;
+  height: 36px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+}
+
+
+.benefit-icon.price {
+  color: #078552;
+  background: #e5f5ec;
+}
+
+
+.benefit-icon.location {
+  color: #27765f;
+  background: #e8f4ee;
+}
+
+
+.benefit-icon.safe {
+  color: #0b7954;
+  background: #e3f3ea;
+}
+
+
+.benefit div:last-child {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+
+.benefit strong {
+  color: #24493c;
+
+  font-size: 10px;
+  font-weight: 700;
+
+  white-space: nowrap;
+}
+
+
+.benefit span {
+  color: #84978f;
+
+  font-size: 8px;
+
+  line-height: 1.3;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   CAMERA MODAL
+========================================================= */
+
+.camera-modal {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 10000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  background: rgba(4, 31, 22, .74);
+
+  backdrop-filter: blur(11px);
+}
+
+
+.camera-window {
+  width: min(430px, 100%);
+
+  overflow: hidden;
+
+  border-radius: 25px;
+
+  background: #0b1814;
+
+  box-shadow:
+    0 30px 80px rgba(0,0,0,.38);
+
+  animation: cameraOpen .25s ease-out;
+}
+
+
+@keyframes cameraOpen {
+  from {
+    opacity: 0;
+    transform: scale(.96) translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+
+/* =========================================================
+   CAMERA TOP BAR
+========================================================= */
+
+.camera-topbar {
+  height: 58px;
+
+  padding: 0 18px;
+
+  display: grid;
+
+  grid-template-columns: 40px 1fr 40px;
+
+  align-items: center;
+
+  text-align: center;
+
+  color: white;
+}
+
+
+.camera-topbar button {
+  width: 36px;
+  height: 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 0;
+
+  border-radius: 50%;
+
+  background: rgba(255,255,255,.08);
+
+  color: white;
+
+  cursor: pointer;
+}
+
+
+.camera-topbar span {
+  font-size: 14px;
+  font-weight: 650;
+}
+
+
+/* =========================================================
+   CAMERA PREVIEW
+========================================================= */
+
+.camera-preview {
+  position: relative;
+
+  width: 100%;
+
+  aspect-ratio: 3 / 4;
+
+  overflow: hidden;
+
+  background: #17241f;
+}
+
+
+.camera-preview video {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+}
+
+
+/* =========================================================
+   SCAN FRAME
+========================================================= */
+
+.scan-frame {
+  position: absolute;
+
+  left: 11%;
+  right: 11%;
+
+  top: 17%;
+  bottom: 17%;
+}
+
+
+.corner {
+  position: absolute;
+
+  width: 32px;
+  height: 32px;
+
+  border-color: rgba(255,255,255,.92);
+
+  border-style: solid;
+}
+
+
+.top-left {
+  top: 0;
+  left: 0;
+
+  border-width: 3px 0 0 3px;
+
+  border-radius: 7px 0 0 0;
+}
+
+
+.top-right {
+  top: 0;
+  right: 0;
+
+  border-width: 3px 3px 0 0;
+
+  border-radius: 0 7px 0 0;
+}
+
+
+.bottom-left {
+  bottom: 0;
+  left: 0;
+
+  border-width: 0 0 3px 3px;
+
+  border-radius: 0 0 0 7px;
+}
+
+
+.bottom-right {
+  right: 0;
+  bottom: 0;
+
+  border-width: 0 3px 3px 0;
+
+  border-radius: 0 0 7px 0;
+}
+
+
+.scan-frame::after {
+  content: "";
+
+  position: absolute;
+
+  left: 5%;
+  right: 5%;
+
+  height: 2px;
+
+  top: 15%;
+
+  background: #68e0aa;
+
+  box-shadow:
+    0 0 12px #68e0aa;
+
+  animation: scan 2.2s ease-in-out infinite;
+}
+
+
+.camera-hint {
+  position: absolute;
+
+  left: 50%;
+  bottom: 21px;
+
+  transform: translateX(-50%);
+
+  white-space: nowrap;
+
+  padding: 8px 13px;
+
+  border-radius: 20px;
+
+  background: rgba(0,0,0,.48);
+
+  color: rgba(255,255,255,.9);
+
+  font-size: 10px;
+
+  backdrop-filter: blur(7px);
+}
+
+
+/* =========================================================
+   CAMERA CONTROLS
+========================================================= */
+
+.camera-controls {
+  height: 100px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+
+.camera-side-button {
+  width: 40px;
+  height: 40px;
+
+  border-radius: 50%;
+
+  background: rgba(255,255,255,.07);
+}
+
+
+.shutter {
+  width: 68px;
+  height: 68px;
+
+  padding: 5px;
+
+  border: 3px solid rgba(255,255,255,.86);
+
+  border-radius: 50%;
+
+  background: transparent;
+
+  cursor: pointer;
+}
+
+
+.shutter span {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  border-radius: 50%;
+
+  background: white;
+
+  transition: transform .15s ease;
+}
+
+
+.shutter:hover span {
+  transform: scale(.9);
+}
+
+
+/* =========================================================
+   CAPTURED PHOTO
+========================================================= */
+
+.captured-card {
+  width: min(600px, 100%);
+
+  margin-top: 29px;
+
+  padding: 9px;
+
+  border: 1px solid #dce9e1;
+
+  border-radius: 23px;
+
+  background: white;
+
+  box-shadow:
+    0 18px 45px rgba(20,60,40,.12);
+}
+
+
+.captured-image-wrapper {
+  position: relative;
+
+  height: 300px;
+
+  overflow: hidden;
+
+  border-radius: 17px;
+
+  background: #edf3ef;
+}
+
+
+.captured-image-wrapper img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+}
+
+
+.image-badge {
+  position: absolute;
+
+  left: 14px;
+  top: 14px;
+
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  padding: 8px 11px;
+
+  border-radius: 20px;
+
+  background: rgba(255,255,255,.93);
+
+  color: #087c50;
+
+  font-size: 10px;
+  font-weight: 650;
+
+  backdrop-filter: blur(8px);
+}
+
+
+.captured-actions {
+  display: flex;
+
+  gap: 10px;
+
+  padding: 12px 4px 2px;
+}
+
+
+.retake-button,
+.continue-button {
+  height: 45px;
+
+  border-radius: 12px;
+
+  cursor: pointer;
+
+  font-size: 12px;
+  font-weight: 650;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+}
+
+
+.retake-button {
+  flex: 1;
+
+  border: 1px solid #dce8e0;
+
+  background: #f4f8f5;
+
+  color: #557168;
+}
+
+
+.continue-button {
+  flex: 2;
+
+  border: 1px solid #078653;
+
+  background: #078653;
+
+  color: white;
+}
+
+
+.continue-button span {
+  font-size: 18px;
+}
+
+
+/* =========================================================
+   ANIMATION
+========================================================= */
+
+@keyframes scan {
+
+  0% {
+    top: 15%;
+    opacity: 0;
+  }
+
+  15% {
+    opacity: 1;
+  }
+
+  50% {
+    top: 82%;
+  }
+
+  85% {
+    opacity: 1;
+  }
+
+  100% {
+    top: 15%;
+    opacity: 0;
+  }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 700px) {
+
+  .home-header {
+    width: calc(100% - 28px);
+
+    padding-top: 18px;
+  }
+
+
+  .home-brand h1 {
+    font-size: 18px;
+  }
+
+
+  .brand-mark {
+    width: 40px;
+    height: 40px;
+
+    font-size: 21px;
+  }
+
+
+  .home-hero {
+    margin-top: 37px;
+  }
+
+
+  .hero-copy h2 {
+    font-size: 42px;
+
+    letter-spacing: -2px;
+  }
+
+
+  .hero-copy p {
+    font-size: 12px;
+  }
+
+
+  .camera-card {
+    min-height: 120px;
+
+    padding: 19px;
+  }
+
+
+  .camera-icon {
+    width: 57px;
+    height: 57px;
+  }
+
+
+  .camera-icon svg {
+    width: 31px;
+  }
+
+
+  .camera-text strong {
+    font-size: 14px;
+  }
+
+
+  .benefits {
+    grid-template-columns: 1fr;
+
+    width: min(600px, 100%);
+  }
+
+
+  .benefit {
+    min-height: 58px;
+  }
+
+
+  .benefit span {
+    white-space: normal;
+  }
+}
