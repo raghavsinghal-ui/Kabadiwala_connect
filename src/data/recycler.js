@@ -63,4 +63,40 @@ export const recyclers = [
     verified: true,
     pickup: true,
   },
+]
+
+
+export const  recycler = [
+  {
+    id: 1,
+    name: "GreenCycle Recycling",
+    location: "Sector 9",
+    distance: 2.4,
+    materials: ["Copper", "Iron", "Aluminium"],
+    ratePerKg: 620,
+    pickup: true,
+    phone: "9876543210",
+  },
+
+  {
+    id: 2,
+    name: "EcoMetal Solutions",
+    location: "Industrial Area",
+    distance: 4.1,
+    materials: ["Copper", "Iron", "Aluminium"],
+    ratePerKg: 590,
+    pickup: true,
+    phone: "9876543211",
+  },
+
+  {
+    id: 3,
+    name: "Smart Scrap Recyclers",
+    location: "Model Town",
+    distance: 5.7,
+    materials: ["Copper", "Iron", "Aluminium"],
+    ratePerKg: 610,
+    pickup: true,
+    phone: "9876543212",
+  },
 ];

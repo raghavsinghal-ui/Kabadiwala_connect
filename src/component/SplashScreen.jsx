@@ -13,6 +13,7 @@ export default function SplashScreen() {
         <i />
         <i />
         <i />
+        <i />
       </div>
 
       <div className="splash-content">
@@ -43,18 +44,77 @@ export default function SplashScreen() {
 
           <div className="kabadi-cart">
 
-            {/* =========================
-                SCRAP LOAD
-            ========================= */}
+            {/* =================================================
+                MOBILE + ELECTRONIC WASTE
+            ================================================= */}
 
             <div className="scrap-load">
 
-              {/* cardboard */}
-              <div className="cardboard box-1" />
-              <div className="cardboard box-2" />
-              <div className="cardboard box-3" />
+              {/* ELECTRONIC CHIPS */}
+<div className="chip chip-1">
+  <span className="chip-pin pin-1" />
+  <span className="chip-pin pin-2" />
+  <span className="chip-pin pin-3" />
+  <span className="chip-pin pin-4" />
+  <span className="chip-center" />
+</div>
 
-              {/* circuit boards */}
+<div className="chip chip-2">
+  <span className="chip-pin pin-1" />
+  <span className="chip-pin pin-2" />
+  <span className="chip-pin pin-3" />
+  <span className="chip-pin pin-4" />
+  <span className="chip-center" />
+</div>
+
+<div className="chip chip-3">
+  <span className="chip-pin pin-1" />
+  <span className="chip-pin pin-2" />
+  <span className="chip-pin pin-3" />
+  <span className="chip-pin pin-4" />
+  <span className="chip-center" />
+</div>
+
+<div className="chip chip-4">
+  <span className="chip-pin pin-1" />
+  <span className="chip-pin pin-2" />
+  <span className="chip-pin pin-3" />
+  <span className="chip-pin pin-4" />
+  <span className="chip-center" />
+</div>
+
+              {/* MOBILE PHONES */}
+              <div className="ewaste-phone phone-1">
+                <div className="phone-screen" />
+                <div className="phone-button" />
+              </div>
+
+              <div className="ewaste-phone phone-2">
+                <div className="phone-screen" />
+                <div className="phone-camera" />
+              </div>
+
+              <div className="ewaste-phone phone-3">
+                <div className="phone-screen" />
+                <div className="phone-button" />
+              </div>
+
+
+              {/* OLD MOBILE BATTERIES */}
+              <div className="battery battery-1">
+                <div className="battery-top" />
+              </div>
+
+              <div className="battery battery-2">
+                <div className="battery-top" />
+              </div>
+
+              <div className="battery battery-3">
+                <div className="battery-top" />
+              </div>
+
+
+              {/* CIRCUIT BOARDS */}
               <div className="circuit board-1">
                 <span />
                 <span />
@@ -65,53 +125,122 @@ export default function SplashScreen() {
               <div className="circuit board-2">
                 <span />
                 <span />
+                <span />
               </div>
 
-              {/* bottles */}
-              <div className="bottle bottle-1">
-                <div className="bottle-neck" />
-                <div className="bottle-cap" />
-                <div className="bottle-label" />
+              <div className="circuit board-3">
+                <span />
+                <span />
+                <span />
               </div>
 
-              <div className="bottle bottle-2">
-                <div className="bottle-neck" />
-                <div className="bottle-cap" />
+
+              {/* COMPUTER RAM */}
+              <div className="ram ram-1">
+                <span />
+                <span />
+                <span />
+                <span />
               </div>
 
-              <div className="bottle bottle-3">
-                <div className="bottle-neck" />
-                <div className="bottle-cap" />
-                <div className="bottle-label" />
+              <div className="ram ram-2">
+                <span />
+                <span />
+                <span />
               </div>
 
-              <div className="bottle bottle-4">
-                <div className="bottle-neck" />
-                <div className="bottle-cap" />
+
+              {/* COMPUTER CHIP */}
+              <div className="chip chip-1">
+                <span />
+                <span />
+                <span />
+                <span />
               </div>
 
-              {/* cans */}
-              <div className="can can-1" />
-              <div className="can can-2" />
+              <div className="chip chip-2">
+                <span />
+                <span />
+                <span />
+                <span />
+              </div>
 
-              {/* cables */}
+
+              {/* USB / ELECTRONIC CONNECTORS */}
+              <div className="usb usb-1">
+                <div />
+              </div>
+
+              <div className="usb usb-2">
+                <div />
+              </div>
+
+
+              {/* HEADPHONE */}
+              <div className="headphone">
+                <span />
+              </div>
+
+
+              {/* CHARGER */}
+              <div className="charger charger-1">
+                <div className="charger-wire" />
+              </div>
+
+              <div className="charger charger-2">
+                <div className="charger-wire" />
+              </div>
+
+
+              {/* EARPHONES */}
+              <div className="earphone earphone-1">
+                <span />
+              </div>
+
+              <div className="earphone earphone-2">
+                <span />
+              </div>
+
+
+              {/* CABLES */}
               <div className="cable cable-1" />
               <div className="cable cable-2" />
               <div className="cable cable-3" />
+              <div className="cable cable-4" />
 
-              {/* metal */}
+
+              {/* METAL SCRAP */}
               <div className="metal metal-1" />
               <div className="metal metal-2" />
+              <div className="metal metal-3" />
 
-              {/* plastic bag */}
-              <div className="plastic-bag" />
+
+              {/* SMALL ELECTRONIC PARTS */}
+              <div className="electronic-piece piece-1" />
+              <div className="electronic-piece piece-2" />
+              <div className="electronic-piece piece-3" />
+              <div className="electronic-piece piece-4" />
+              <div className="electronic-piece piece-5" />
+
+
+              {/* OLD SIM / MEMORY CARDS */}
+              <div className="memory-card memory-1" />
+              <div className="memory-card memory-2" />
+
+
+              {/* SMALL SPEAKER */}
+              <div className="speaker">
+                <span />
+                <span />
+                <span />
+              </div>
 
             </div>
 
 
-            {/* =========================
+            {/* =================================================
                 CART BODY
-            ========================= */}
+            ================================================= */}
 
             <div className="cart-body">
 
