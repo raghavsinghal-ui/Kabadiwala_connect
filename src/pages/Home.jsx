@@ -1,3 +1,4 @@
+
 import { useRef, useState } from "react";
 import PriceResult from "../component/priceRes";
 
@@ -22,21 +23,58 @@ export default function Home() {
   const [cameraOpen, setCameraOpen] = useState(false);
   const [capturedImage, setCapturedImage] = useState(null);
   const [showPriceResult, setShowPriceResult] = useState(false);
+
   const isHindi = language === "hi";
   const isMarathi = language === "mr";
+  const [isAnalyzing, setIsAnalyzing] = useState(false);
+  const [analysisError, setAnalysisError] = useState("");
+  const [aiAnalysis, setAiAnalysis] = useState(null);
 
-  /*
-   * DEMO AI RESULT
-   *
-   * Later this object can be replaced by
-   * the actual response from your AI model.
-   */
-  const aiAnalysis = {
-    material: "Copper",
-    confidence: 94,
-    ratePerKg: 620,
-    condition: "Good",
+  // Frontend-only reference rates for the internal prototype.
+  const MATERIAL_RATES = {
+    "Mobile": { ratePerKg: 120, unit: "piece" },
+    "Laptop / Computer": { ratePerKg: 250, unit: "piece" },
+    "CRT TV": { ratePerKg: 8, unit: "kg" },
+    "LCD / LED": { ratePerKg: 300, unit: "piece" },
+    "PCB": { ratePerKg: 180, unit: "kg" },
+    "Cable / Wire": { ratePerKg: 120, unit: "kg" },
+    "Battery": { ratePerKg: 80, unit: "kg" },
+    "Printer": { ratePerKg: 15, unit: "kg" },
+    "Large Appliance": { ratePerKg: 12, unit: "kg" },
+    "Other E-waste": { ratePerKg: 50, unit: "kg" },
   };
+
+
+  const ALLOWED_CATEGORIES = Object.keys(MATERIAL_RATES);
+
+
+
+  const handleFileUpload = (event) => {
+    const file = event.target.files?.[0];
+    if (!file) return;
+
+    if (!file.type.startsWith("image/")) {
+      alert("Please select an image.");
+      return;
+    }
+
+    if (file.size > 5 * 1024 * 1024) {
+      alert("Please select an image smaller than 5 MB.");
+      return;
+    }
+
+    const reader = new FileReader();
+
+    reader.onload = () => {
+      setCapturedImage(reader.result);
+      setAiAnalysis(null);
+      setAnalysisError("");
+      setShowPriceResult(false);
+    };
+
+    reader.readAsDataURL(file);
+  };
+
 
   /* --------------------------------
      OPEN CAMERA
@@ -160,10 +198,126 @@ export default function Home() {
 
 
   /* --------------------------------
+     AI MATERIAL CLASSIFICATION
+  -------------------------------- */
+
+  const analyzeMaterial = async () => {
+    if (!capturedImage) return;
+
+    const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
+
+    if (!apiKey) {
+      setAnalysisError(
+        "Gemini API key is missing. Add VITE_GEMINI_API_KEY to your .env file."
+      );
+      return;
+    }
+
+    setIsAnalyzing(true);
+    setAnalysisError("");
+    setShowPriceResult(false);
+
+    try {
+      const [header, base64Data] = capturedImage.split(",");
+      const mimeType = header.match(/data:(.*);base64/)?.[1] || "image/jpeg";
+
+      const prompt = `
+You are an e-waste classification assistant for Kabadiwala Connect.
+
+Analyze this image and choose EXACTLY ONE category from this list:
+${ALLOWED_CATEGORIES.map((item) => `- ${item}`).join("\n")}
+
+Return ONLY valid JSON:
+{
+  "category": "one allowed category",
+  "subcategory": "specific item type",
+  "confidence": 0.0,
+  "condition": "working | non-working | unknown",
+  "reason": "short visual reason"
+}
+
+Rules:
+- Never invent a category outside the allowed list.
+- confidence must be between 0 and 1.
+- If uncertain, lower the confidence.
+- Do not estimate price.
+`;
+
+      const response = await fetch(
+        `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            contents: [
+              {
+                parts: [
+                  { text: prompt },
+                  {
+                    inlineData: {
+                      mimeType,
+                      data: base64Data,
+                    },
+                  },
+                ],
+              },
+            ],
+            generationConfig: {
+              responseMimeType: "application/json",
+              temperature: 0.1,
+            },
+          }),
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error(`Gemini API error: ${response.status}`);
+      }
+
+      const data = await response.json();
+      const rawText = data?.candidates?.[0]?.content?.parts?.[0]?.text;
+
+      if (!rawText) {
+        throw new Error("Gemini returned an empty response.");
+      }
+
+      const result = JSON.parse(rawText);
+      const rateInfo = MATERIAL_RATES[result.category];
+
+      if (!rateInfo) {
+        throw new Error("Unsupported material category returned by AI.");
+      }
+
+      setAiAnalysis({
+        material: result.category,
+        subcategory: result.subcategory || result.category,
+        confidence: Math.round(Number(result.confidence || 0) * 100),
+        ratePerKg: rateInfo.ratePerKg,
+        unit: rateInfo.unit,
+        condition: result.condition || "unknown",
+        reason: result.reason || "",
+      });
+
+      setShowPriceResult(true);
+    } catch (error) {
+      console.error("Material analysis error:", error);
+      setAnalysisError(
+        "Could not analyze the image. Please try another clear photo."
+      );
+    } finally {
+      setIsAnalyzing(false);
+    }
+  };
+
+  /* --------------------------------
      CONTINUE TO PRICE RESULT
   -------------------------------- */
 
   const continueToPrice = () => {
+    if (!aiAnalysis) {
+      analyzeMaterial();
+      return;
+    }
     setShowPriceResult(true);
   };
 
@@ -325,6 +479,7 @@ export default function Home() {
         ================================== */}
 
         {!capturedImage ? (
+          <>
 
           <button
             type="button"
@@ -367,6 +522,28 @@ export default function Home() {
 
           </button>
 
+          <label
+            htmlFor="scrap-image-upload"
+            style={{
+              display: "block",
+              marginTop: "12px",
+              textAlign: "center",
+              cursor: "pointer",
+              textDecoration: "underline",
+            }}
+          >
+            Or upload a photo from your device
+          </label>
+
+          <input
+            id="scrap-image-upload"
+            type="file"
+            accept="image/*"
+            onChange={handleFileUpload}
+            style={{ display: "none" }}
+          />
+
+          </>
         ) : (
 
           /* ==================================
@@ -405,10 +582,11 @@ export default function Home() {
               <button
                 type="button"
                 className="continue-button"
-                onClick={continueToPrice}
+                onClick={analyzeMaterial}
+                disabled={isAnalyzing}
               >
-                Continue
-                <span>→</span>
+                {isAnalyzing ? "Analyzing..." : "Analyze Material"}
+                <span>{isAnalyzing ? "…" : "→"}</span>
               </button>
 
             </div>
