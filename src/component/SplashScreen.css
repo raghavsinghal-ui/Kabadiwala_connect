@@ -1120,3 +1120,663 @@
     font-size: 11px;
   }
 }
+
+
+/* =====================================================
+   SCRAP LOAD - MOBILE + ELECTRONIC WASTE
+===================================================== */
+
+.scrap-load {
+  position: absolute;
+  left: 27px;
+  bottom: 78px;
+  width: 235px;
+  height: 105px;
+  z-index: 2;
+}
+
+
+/* =====================================================
+   MOBILE PHONES
+===================================================== */
+
+.phone {
+  position: absolute;
+  width: 25px;
+  height: 43px;
+  border-radius: 5px;
+  background: linear-gradient(
+    135deg,
+    #263b45,
+    #617d86
+  );
+  border: 2px solid #b9d0ca;
+  box-shadow: 0 3px 5px rgba(0,0,0,.2);
+}
+
+.phone::before {
+  content: "";
+  position: absolute;
+  left: 3px;
+  right: 3px;
+  top: 5px;
+  bottom: 6px;
+  border-radius: 3px;
+  background: linear-gradient(
+    145deg,
+    #172c35,
+    #53727a
+  );
+}
+
+.phone::after {
+  content: "";
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #d4eee5;
+  bottom: 2px;
+  left: 9px;
+}
+
+.phone-1 {
+  left: 18px;
+  bottom: 45px;
+  transform: rotate(-18deg);
+}
+
+.phone-2 {
+  left: 72px;
+  bottom: 48px;
+  transform: rotate(12deg);
+}
+
+.phone-3 {
+  left: 135px;
+  bottom: 44px;
+  transform: rotate(-10deg);
+}
+
+.phone-4 {
+  left: 181px;
+  bottom: 38px;
+  transform: rotate(17deg);
+}
+
+
+/* =====================================================
+   CIRCUIT BOARDS
+===================================================== */
+
+.circuit {
+  position: absolute;
+  background: #294c46;
+  border: 2px solid #9abdb0;
+  border-radius: 4px;
+  box-shadow: 0 3px 5px rgba(0,0,0,.2);
+}
+
+.board-1 {
+  width: 52px;
+  height: 35px;
+  left: 4px;
+  bottom: 66px;
+  transform: rotate(-13deg);
+}
+
+.board-2 {
+  width: 47px;
+  height: 31px;
+  left: 103px;
+  bottom: 67px;
+  transform: rotate(14deg);
+}
+
+.board-3 {
+  width: 42px;
+  height: 28px;
+  left: 174px;
+  bottom: 65px;
+  transform: rotate(-12deg);
+}
+
+.circuit span {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #c9e7dc;
+}
+
+.board-1 span:nth-child(1) {
+  left: 6px;
+  top: 6px;
+}
+
+.board-1 span:nth-child(2) {
+  left: 22px;
+  top: 17px;
+}
+
+.board-1 span:nth-child(3) {
+  right: 6px;
+  top: 6px;
+}
+
+.board-1 span:nth-child(4) {
+  right: 10px;
+  bottom: 5px;
+}
+
+.board-2 span:nth-child(1) {
+  left: 6px;
+  top: 6px;
+}
+
+.board-2 span:nth-child(2) {
+  right: 6px;
+  bottom: 5px;
+}
+
+
+/* =====================================================
+   BATTERIES
+===================================================== */
+
+.battery {
+  position: absolute;
+  width: 30px;
+  height: 48px;
+  border-radius: 5px;
+  background: linear-gradient(
+    90deg,
+    #596e66,
+    #b0c1b9,
+    #4c6259
+  );
+  border: 2px solid #d0e1da;
+  box-shadow: 0 3px 5px rgba(0,0,0,.18);
+}
+
+.battery::before {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 4px;
+  left: 8px;
+  top: -6px;
+  border-radius: 3px;
+  background: #d6e5df;
+}
+
+.battery::after {
+  content: "+";
+  position: absolute;
+  left: 10px;
+  top: 17px;
+  font-size: 13px;
+  font-weight: bold;
+  color: #e9fff5;
+}
+
+.battery-1 {
+  left: 43px;
+  bottom: 32px;
+  transform: rotate(-9deg);
+}
+
+.battery-2 {
+  left: 153px;
+  bottom: 29px;
+  transform: rotate(12deg);
+}
+
+
+/* =====================================================
+   COMPUTER / LAPTOP PARTS
+===================================================== */
+
+.laptop-part {
+  position: absolute;
+  width: 57px;
+  height: 31px;
+  border-radius: 4px;
+  background: #566b64;
+  border: 2px solid #c0d4cc;
+  box-shadow: 0 3px 5px rgba(0,0,0,.2);
+}
+
+.laptop-part::before {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 4px;
+  width: 43px;
+  height: 20px;
+  border-radius: 2px;
+  background: #263c42;
+}
+
+.laptop-part-1 {
+  left: 27px;
+  bottom: 78px;
+  transform: rotate(-7deg);
+}
+
+.laptop-part-2 {
+  left: 117px;
+  bottom: 77px;
+  transform: rotate(8deg);
+}
+
+
+/* =====================================================
+   KEYBOARD
+===================================================== */
+
+.keyboard {
+  position: absolute;
+  width: 58px;
+  height: 18px;
+  border-radius: 4px;
+  background: #52675f;
+  border: 2px solid #b8cec5;
+  box-shadow: 0 3px 4px rgba(0,0,0,.18);
+}
+
+.keyboard::before {
+  content: "";
+  position: absolute;
+  left: 5px;
+  right: 5px;
+  top: 4px;
+  height: 3px;
+  background: repeating-linear-gradient(
+    90deg,
+    #d4e2dc 0px,
+    #d4e2dc 4px,
+    transparent 4px,
+    transparent 7px
+  );
+}
+
+.keyboard-1 {
+  left: 87px;
+  bottom: 27px;
+  transform: rotate(-12deg);
+}
+
+.keyboard-2 {
+  left: 161px;
+  bottom: 58px;
+  transform: rotate(14deg);
+}
+
+
+/* =====================================================
+   COMPUTER MOUSE
+===================================================== */
+
+.mouse {
+  position: absolute;
+  width: 22px;
+  height: 30px;
+  border-radius: 10px;
+  background: #697d75;
+  border: 2px solid #c5d8d1;
+}
+
+.mouse::before {
+  content: "";
+  position: absolute;
+  left: 8px;
+  top: 5px;
+  width: 3px;
+  height: 8px;
+  border-radius: 3px;
+  background: #d8eee5;
+}
+
+.mouse-1 {
+  left: 69px;
+  bottom: 22px;
+  transform: rotate(-16deg);
+}
+
+.mouse-2 {
+  left: 201px;
+  bottom: 54px;
+  transform: rotate(18deg);
+}
+
+
+/* =====================================================
+   USB / MEMORY STICKS
+===================================================== */
+
+.usb {
+  position: absolute;
+  width: 37px;
+  height: 10px;
+  border-radius: 3px;
+  background: #4d665e;
+  border: 2px solid #b9d0c7;
+}
+
+.usb::after {
+  content: "";
+  position: absolute;
+  right: -7px;
+  top: 1px;
+  width: 7px;
+  height: 6px;
+  background: #cbdcd6;
+}
+
+.usb-1 {
+  left: 13px;
+  bottom: 20px;
+  transform: rotate(17deg);
+}
+
+.usb-2 {
+  left: 124px;
+  bottom: 22px;
+  transform: rotate(-18deg);
+}
+
+.usb-3 {
+  left: 184px;
+  bottom: 17px;
+  transform: rotate(8deg);
+}
+
+
+/* =====================================================
+   WIRES / CHARGING CABLES
+===================================================== */
+
+.cable {
+  position: absolute;
+  border: 4px solid #243d36;
+  border-radius: 50%;
+  background: transparent;
+}
+
+.cable-1 {
+  width: 60px;
+  height: 27px;
+  left: 0;
+  bottom: 49px;
+  transform: rotate(-18deg);
+}
+
+.cable-2 {
+  width: 54px;
+  height: 25px;
+  left: 61px;
+  bottom: 62px;
+  transform: rotate(18deg);
+}
+
+.cable-3 {
+  width: 49px;
+  height: 23px;
+  left: 130px;
+  bottom: 54px;
+  transform: rotate(-25deg);
+}
+
+.cable-4 {
+  width: 43px;
+  height: 20px;
+  left: 181px;
+  bottom: 45px;
+  transform: rotate(22deg);
+}
+
+
+/* =====================================================
+   ELECTRONIC CHIPS
+===================================================== */
+
+.electronic-chip {
+  position: absolute;
+  width: 30px;
+  height: 27px;
+  border-radius: 3px;
+  background: #253f39;
+  border: 2px solid #8caea2;
+  box-shadow: 0 3px 4px rgba(0,0,0,.18);
+}
+
+.electronic-chip::before,
+.electronic-chip::after {
+  content: "";
+  position: absolute;
+  background: #c5ddd4;
+}
+
+.electronic-chip::before {
+  left: -5px;
+  right: -5px;
+  top: 6px;
+  height: 2px;
+  box-shadow:
+    0 7px #c5ddd4,
+    0 14px #c5ddd4;
+}
+
+.electronic-chip::after {
+  top: -5px;
+  bottom: -5px;
+  left: 7px;
+  width: 2px;
+  box-shadow:
+    7px 0 #c5ddd4,
+    14px 0 #c5ddd4;
+}
+
+.chip-1 {
+  left: 48px;
+  bottom: 73px;
+  transform: rotate(-8deg);
+}
+
+.chip-2 {
+  left: 82px;
+  bottom: 83px;
+  transform: rotate(14deg);
+}
+
+.chip-3 {
+  left: 145px;
+  bottom: 73px;
+  transform: rotate(-12deg);
+}
+
+.chip-4 {
+  left: 190px;
+  bottom: 76px;
+  transform: rotate(10deg);
+}
+
+
+/* =====================================================
+   SMALL ELECTRONIC COMPONENTS
+===================================================== */
+
+.component {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-radius: 3px;
+  background: #738c82;
+  border: 2px solid #c8ddd5;
+}
+
+.component-1 {
+  left: 29px;
+  bottom: 83px;
+  transform: rotate(12deg);
+}
+
+.component-2 {
+  left: 108px;
+  bottom: 89px;
+  transform: rotate(-15deg);
+}
+
+.component-3 {
+  left: 169px;
+  bottom: 87px;
+  transform: rotate(8deg);
+}
+
+.component-4 {
+  left: 213px;
+  bottom: 72px;
+  transform: rotate(-12deg);
+}
+
+
+/* =====================================================
+   METAL PARTS
+===================================================== */
+
+.metal {
+  position: absolute;
+  height: 7px;
+  border-radius: 6px;
+  background: linear-gradient(
+    90deg,
+    #61776d,
+    #b2c2bb,
+    #52675f
+  );
+  box-shadow: 0 2px 3px rgba(0,0,0,.16);
+}
+
+.metal-1 {
+  width: 73px;
+  left: 20px;
+  bottom: 92px;
+  transform: rotate(-18deg);
+}
+
+.metal-2 {
+  width: 62px;
+  left: 91px;
+  bottom: 96px;
+  transform: rotate(19deg);
+}
+
+.metal-3 {
+  width: 55px;
+  left: 154px;
+  bottom: 92px;
+  transform: rotate(-16deg);
+}
+
+.metal-4 {
+  width: 43px;
+  left: 190px;
+  bottom: 100px;
+  transform: rotate(12deg);
+}
+
+
+/* =========================
+   ELECTRONIC CHIPS / IC
+========================= */
+
+.chip {
+  position: absolute;
+  width: 34px;
+  height: 30px;
+  background: #222;
+  border: 2px solid #555;
+  border-radius: 4px;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.35);
+  z-index: 5;
+}
+
+/* chip center */
+.chip-center {
+  position: absolute;
+  width: 12px;
+  height: 10px;
+  left: 9px;
+  top: 8px;
+  background: #111;
+  border: 1px solid #777;
+  border-radius: 2px;
+}
+
+/* chip pins */
+.chip-pin {
+  position: absolute;
+  width: 4px;
+  height: 8px;
+  background: #c9a227;
+}
+
+/* top pins */
+.chip-pin.pin-1 {
+  left: 5px;
+  top: -7px;
+  box-shadow: 12px 0 #c9a227, 24px 0 #c9a227;
+}
+
+/* bottom pins */
+.chip-pin.pin-2 {
+  left: 5px;
+  bottom: -7px;
+  box-shadow: 12px 0 #c9a227, 24px 0 #c9a227;
+}
+
+/* left side pins */
+.chip-pin.pin-3 {
+  left: -7px;
+  top: 5px;
+  width: 8px;
+  height: 4px;
+  box-shadow: 0 12px #c9a227;
+}
+
+/* right side pins */
+.chip-pin.pin-4 {
+  right: -7px;
+  top: 5px;
+  width: 8px;
+  height: 4px;
+  box-shadow: 0 12px #c9a227;
+}
+
+
+/* CHIP POSITIONS */
+
+.chip-1 {
+  left: 35px;
+  bottom: 72px;
+  transform: rotate(-12deg);
+}
+
+.chip-2 {
+  left: 88px;
+  bottom: 91px;
+  transform: rotate(8deg);
+}
+
+.chip-3 {
+  left: 145px;
+  bottom: 70px;
+  transform: rotate(-6deg);
+}
+
+.chip-4 {
+  left: 188px;
+  bottom: 88px;
+  transform: rotate(15deg);
+}
