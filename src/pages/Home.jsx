@@ -320,7 +320,60 @@ Rules:
     }
     setShowPriceResult(true);
   };
+const speakSafety = () => {
+  if (!aiAnalysis) return;
 
+  const safetyMessages = {
+    Battery: {
+      en: "Keep batteries away from heat. Do not burn, crush or puncture them.",
+      hi: "बैटरी को गर्मी से दूर रखें। इसे जलाएं, तोड़ें या छेद न करें।",
+      mr: "बॅटरीला उष्णतेपासून दूर ठेवा. ती जाळू, फोडू किंवा छेदू नका."
+    },
+
+    PCB: {
+      en: "Do not burn or break electronic boards. Handle them carefully.",
+      hi: "इलेक्ट्रॉनिक बोर्ड को जलाएं या तोड़ें नहीं। इन्हें सावधानी से संभालें।",
+      mr: "इलेक्ट्रॉनिक बोर्ड जाळू किंवा तोडू नका. काळजीपूर्वक हाताळा."
+    },
+
+    Mobile: {
+      en: "Do not burn or dismantle the device. Handle it carefully.",
+      hi: "डिवाइस को जलाएं या खोलें नहीं। इसे सावधानी से संभालें।",
+      mr: "डिव्हाइस जाळू किंवा उघडू नका. ते काळजीपूर्वक हाताळा."
+    },
+
+    "Laptop / Computer": {
+      en: "Do not burn or dismantle the device. Handle it carefully.",
+      hi: "डिवाइस को जलाएं या खोलें नहीं। इसे सावधानी से संभालें।",
+      mr: "डिव्हाइस जाळू किंवा उघडू नका. ते काळजीपूर्वक हाताळा."
+    },
+
+    default: {
+      en: "Handle this material safely. Do not burn it.",
+      hi: "इस सामग्री को सावधानी से संभालें। इसे जलाएं नहीं।",
+      mr: "ही सामग्री काळजीपूर्वक हाताळा. ती जाळू नका."
+    }
+  };
+
+  const message =
+    safetyMessages[aiAnalysis.material]?.[language] ||
+    safetyMessages.default[language];
+
+  window.speechSynthesis.cancel();
+
+  const speech = new SpeechSynthesisUtterance(message);
+
+  speech.lang =
+    language === "hi"
+      ? "hi-IN"
+      : language === "mr"
+        ? "mr-IN"
+        : "en-IN";
+
+  speech.rate = 0.9;
+
+  window.speechSynthesis.speak(speech);
+};
 
   /* --------------------------------
      BACK FROM PRICE RESULT
@@ -339,12 +392,13 @@ Rules:
    */
   if (showPriceResult) {
     return (
-      <PriceResult
-        analysis={aiAnalysis}
-        capturedImage={capturedImage}
-        onBack={goBackFromPrice}
-        language={language}
-      />
+    <PriceResult
+  analysis={aiAnalysis}
+  capturedImage={capturedImage}
+  onBack={goBackFromPrice}
+  language={language}
+  onHearSafety={speakSafety}
+/>
     );
   }
 

@@ -865,3 +865,58 @@
   color: #173b2d;
   background: #ffffff;
 }
+/* ================================
+   SAFETY / HEAR
+================================ */
+
+.safety-card {
+  margin-top: 18px;
+  padding: 18px;
+  border-radius: 18px;
+  background: #fff9e8;
+  border: 1px solid #f0d98c;
+}
+
+.safety-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.safety-icon {
+  font-size: 25px;
+}
+
+.safety-card-header h3 {
+  margin: 0;
+  font-size: 16px;
+  color: #26352d;
+}
+
+.safety-card-header p {
+  margin: 3px 0 0;
+  font-size: 12px;
+  color: #718078;
+}
+
+.safety-message {
+  margin: 14px 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #39463f;
+}
+
+.hear-button {
+  border: none;
+  border-radius: 10px;
+  padding: 10px 18px;
+  background: #087443;
+  color: white;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.hear-button:hover {
+  opacity: 0.9;
+}

@@ -2,7 +2,13 @@ import { useState } from "react";
 import { recyclers } from "../data/recycler";
 import "./priceRes.css";
 
-function PriceResult({ analysis, onBack, language }) {
+ function PriceResult({
+  analysis,
+  capturedImage,
+  onBack,
+  language,
+  onHearSafety
+}) {
   const [weight, setWeight] = useState("");
   const [unit, setUnit] = useState("kg");
   const [collectorPrice, setCollectorPrice] = useState("");
@@ -15,6 +21,7 @@ function PriceResult({ analysis, onBack, language }) {
 
   // Stores the recycler whose pickup has been successfully booked
   const [bookedRecycler, setBookedRecycler] = useState(null);
+  const [handoverRecord, setHandoverRecord] = useState(null);
 
   const [bookingDetails, setBookingDetails] = useState({
     name: "",
@@ -239,23 +246,30 @@ function PriceResult({ analysis, onBack, language }) {
   // =====================================================
   // CONFIRM BOOKING
   // =====================================================
+const handleBookingSubmit = (e) => {
+  e.preventDefault();
 
-  const handleBookingSubmit = (e) => {
-    e.preventDefault();
-
-    // Save the selected recycler as the booked recycler
-    setBookedRecycler(selectedRecycler);
-
-    // Close the booking popup
-    setShowBooking(false);
-
-    // Hide the recycler list and all other booking options
-    setShowRecyclers(false);
-
-    // Keep bookingDetails so the booked information can be displayed
-    alert(t.bookingSuccess);
+  const record = {
+    lotId: `KC-2026-${Date.now().toString().slice(-5)}`,
+    referenceId: `HR-${Date.now().toString().slice(-5)}`,
+    material: material,
+    weight: weight,
+    value: estimatedValue,
+    recycler: selectedRecycler.name,
+    timestamp: new Date().toLocaleString("en-IN", {
+      dateStyle: "medium",
+      timeStyle: "short",
+    }),
   };
 
+  setHandoverRecord(record);
+
+  setBookedRecycler(selectedRecycler);
+  setShowBooking(false);
+  setShowRecyclers(false);
+
+  alert(t.bookingSuccess);
+};
   return (
     <div className="price-page">
 
@@ -307,7 +321,13 @@ function PriceResult({ analysis, onBack, language }) {
                 fontSize: "28px",
               }}
             >
-              {t.bookingSuccess}
+             {handoverRecord
+  ? language === "hi"
+    ? "हैंडओवर रिकॉर्ड तैयार"
+    : language === "mr"
+      ? "हँडओव्हर रेकॉर्ड तयार"
+      : "Handover Record Created"
+  : t.bookingSuccess}
             </h1>
 
             <p
@@ -520,6 +540,95 @@ function PriceResult({ analysis, onBack, language }) {
                 ₹{estimatedValue.toLocaleString("en-IN")}
               </strong>
             </div>
+            {handoverRecord && (
+  <div
+    style={{
+      marginTop: "18px",
+      padding: "18px",
+      borderRadius: "16px",
+      background: "#eef9f3",
+      border: "1px solid #cce9d9",
+      color: "#173b2d",
+    }}
+  >
+    <h3
+      style={{
+        margin: "0 0 16px",
+        color: "#087443",
+      }}
+    >
+      ♻️ Digital Handover Record
+    </h3>
+
+    <div
+      style={{
+        display: "grid",
+        gridTemplateColumns: "1fr 1fr",
+        gap: "12px",
+      }}
+    >
+      <div>
+        <small>Lot ID</small>
+        <strong style={{ display: "block" }}>
+          {handoverRecord.lotId}
+        </strong>
+      </div>
+
+      <div>
+        <small>Reference</small>
+        <strong style={{ display: "block" }}>
+          {handoverRecord.referenceId}
+        </strong>
+      </div>
+
+      <div>
+        <small>Material</small>
+        <strong style={{ display: "block" }}>
+          {handoverRecord.material}
+        </strong>
+      </div>
+
+      <div>
+        <small>Weight</small>
+        <strong style={{ display: "block" }}>
+          {handoverRecord.weight} kg
+        </strong>
+      </div>
+
+      <div>
+        <small>Estimated Value</small>
+        <strong style={{ display: "block" }}>
+          ₹{handoverRecord.value.toLocaleString("en-IN")}
+        </strong>
+      </div>
+
+      <div>
+        <small>Recorded</small>
+        <strong style={{ display: "block" }}>
+          {handoverRecord.timestamp}
+        </strong>
+      </div>
+    </div>
+
+    <div
+      style={{
+        marginTop: "16px",
+        paddingTop: "14px",
+        borderTop: "1px solid #cce9d9",
+        fontSize: "13px",
+        lineHeight: "1.8",
+      }}
+    >
+      ✓ Material identified
+      <br />
+      ✓ Recycler selected
+      <br />
+      ✓ Pickup scheduled
+      <br />
+      ✓ Handover reference generated
+    </div>
+  </div>
+)}
 
             {/* BACK BUTTON */}
             <button
@@ -631,7 +740,73 @@ function PriceResult({ analysis, onBack, language }) {
 
           </div>
 
+{/* =====================================================
+    SAFETY / HEAR
+===================================================== */}
 
+<div className="safety-card">
+
+  <div className="safety-card-header">
+    <span className="safety-icon">⚠️</span>
+
+    <div>
+      <h3>
+        {language === "hi"
+          ? "सुरक्षित तरीके से संभालें"
+          : language === "mr"
+            ? "सुरक्षितपणे हाताळा"
+            : "Safe Handling"}
+      </h3>
+
+      <p>
+        {language === "hi"
+          ? "महत्वपूर्ण सुरक्षा जानकारी"
+          : language === "mr"
+            ? "महत्त्वाची सुरक्षा माहिती"
+            : "Important safety guidance"}
+      </p>
+    </div>
+  </div>
+
+  <p className="safety-message">
+
+    {material === "Battery"
+      ? language === "hi"
+        ? "बैटरी को गर्मी से दूर रखें। इसे जलाएं, तोड़ें या छेद न करें।"
+        : language === "mr"
+          ? "बॅटरीला उष्णतेपासून दूर ठेवा. ती जाळू, फोडू किंवा छेदू नका."
+          : "Keep batteries away from heat. Do not burn, crush or puncture them."
+
+      : material === "PCB"
+        ? language === "hi"
+          ? "इलेक्ट्रॉनिक बोर्ड को जलाएं या तोड़ें नहीं। इन्हें सावधानी से संभालें।"
+          : language === "mr"
+            ? "इलेक्ट्रॉनिक बोर्ड जाळू किंवा तोडू नका. काळजीपूर्वक हाताळा."
+            : "Do not burn or break electronic boards. Handle them carefully."
+
+        : language === "hi"
+          ? "इस सामग्री को सावधानी से संभालें और इसे जलाएं नहीं।"
+          : language === "mr"
+            ? "ही सामग्री काळजीपूर्वक हाताळा आणि ती जाळू नका."
+            : "Handle this material safely and do not burn it."
+    }
+
+  </p>
+
+  <button
+    type="button"
+    className="hear-button"
+    onClick={onHearSafety}
+  >
+    🔊{" "}
+    {language === "hi"
+      ? "सुनें"
+      : language === "mr"
+        ? "ऐका"
+        : "Hear"}
+  </button>
+
+</div>
           {/* =====================================================
           INPUT SECTION
       ===================================================== */}
